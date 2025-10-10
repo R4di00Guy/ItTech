@@ -1,5 +1,5 @@
 # ItTech
 ittech repository
-### Zrobili: 
-Varvara Yukhnavets 
-Pesenko Ruslan
+## Zrobili: 
+### Varvara Yukhnavets 
+### Pesenko Ruslan

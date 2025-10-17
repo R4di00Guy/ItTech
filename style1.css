@@ -3,11 +3,18 @@ body{
     height: 100% auto; */
     background-color: rgb(237, 247, 255);
     padding: 8px 35px;
+
+    
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
 header{
-    height: 152px;
+    height: 15%;
     width: 100%;
-    background-color: brown;
+    background-color: rgba(165, 42, 42, 0);
     margin: 0;
     padding: 0;
     
@@ -16,7 +23,7 @@ header{
     background-color: white;
     /* margin: 35px; */
     transform: skewX(-12deg);
-    height: 152px;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -25,16 +32,32 @@ header{
 }
 h1.logo{
     /* font-style: italic;s */
-    font-size: 101px;
+    font-size: 517%;
     font-weight: 800;
     color: rgb(28, 39, 75);
     margin: 0px 0px 11px 106px;
 }
 nav{
-    font-size: 50px;
+    font-size: 300%;
     margin: 0px 42px 0px 0px;
 }
 a.nav{
     margin: 0px 12px;
 
+}
+div.line{
+    width: 100%;
+    height: 0;
+    background-color: rgba(127, 255, 212, 0);
+    border-top: 2px solid black;
+    margin: 14px 0px;
+}
+main{
+    width: 60%;
+    margin: 0 auto;
+    padding: 32px;
+    min-height: fit-content;
+    background-color: white;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }

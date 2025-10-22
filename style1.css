@@ -61,3 +61,25 @@ main{
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
+
+footer{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 12px;
+    min-height: fit-content;
+    background-color: white;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 32px;
+    padding-bottom: 0;
+}
+div.foottxt{
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+}
+div#copyrights{
+    text-align: center;
+    clear: both;
+}

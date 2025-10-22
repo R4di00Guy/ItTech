@@ -4,3 +4,4 @@ ittech repository
 ## Zrobili: 
 ### Varvara Yukhnavets 
 ### Pesenko Ruslan
+#Do it before the next lection!!!

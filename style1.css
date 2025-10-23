@@ -43,7 +43,12 @@ nav{
 }
 a.nav{
     margin: 0px 12px;
-
+    text-decoration: none;
+    color: black;
+}
+a.nav:hover{
+    color: rgb(28, 39, 75);
+    border-left: 4px rgb(28, 39, 75) solid;
 }
 div.line{
     width: 100%;

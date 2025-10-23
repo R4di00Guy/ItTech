@@ -113,6 +113,35 @@ footer{
     padding: 32px;
     padding-bottom: 0;
 }
+.marq {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  background: #000; /* можно удалить или изменить фон */
+  color: #fff;      /* цвет текста */
+}
+
+.marqinner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+.marqinner span {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 2rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 div.foottxt{
     float: left;
     width: 50%;

@@ -41,6 +41,7 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
     </div>
     <main>
     <h1>Halloween w ItTech – strasznie dobre zniżki</h1>
+    <div id="halloween_img"><img src="halloween_ittech.png" alt="halloween jack-o-lantern"></div>
         <h3>
             <p>Z okazji Halloween firma ItTech przygotowała wyjątkową promocję, która z pewnością ożywi każdy komputer.
             Tylko do 31 października oferujemy do 30% zniżki na wybrane usługi:
@@ -129,6 +130,45 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
             </div>
         </div>
      </main>
+     <main>
+        <h2>Zamwenie</h2>
+            <div id="zamow">
+                    <form method="post" action="/submit">
+                        <h3>Wybierz usługę:</h3>
+                        <label><input type="checkbox" name="services" value="service1"> sprzątanie komputera</label><br>
+                        <label><input type="checkbox" name="services" value="service2">  naprawa systemów komputerowych</label><br>
+                        <label><input type="checkbox" name="services" value="service3"> diagnostyka</label><br><br>
+
+                        <h3>Gdzie musi być okazana usługa:</h3>
+                        <label><input type="radio" name="location" value="home" required onclick="toggleAddress(true)">wyjazd technika do domu</label><br>
+                        <label><input type="radio" name="location" value="office" onclick="toggleAddress(false)"> wizyta naszego oddziłu przez klienta</label><br><br>
+
+                        <div id="address-field" style="display:none;">
+                            <label>Adres: <input type="text" name="address" id="address"></label><br><br>
+                        </div>
+
+                        <label>Telefon (obowiązkowo): <input type="tel" name="phone" required pattern="\+?[0-9\s\-\(\)]{7,}"></label><br><br>
+
+                        <label>Email (opcjonalnie): <input type="email" name="email"></label><br><br>
+
+                        <button type="submit">Wyślij</button>
+                    </form>
+
+                    <script>
+                        function toggleAddress(show) {
+                        const addressField = document.getElementById('address-field');
+                        const addressInput = document.getElementById('address');
+                        if (show) {
+                            addressField.style.display = 'block';
+                            addressInput.required = true;
+                        } else {
+                            addressField.style.display = 'none';
+                            addressInput.required = false;
+                        }
+                        }
+                    </script>
+            </div>
+        </main>
 
     <div class="line"></div>
     <footer>

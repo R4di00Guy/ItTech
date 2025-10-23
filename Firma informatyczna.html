@@ -16,7 +16,7 @@
             <a href="http://" target="_blank" rel="noopener noreferrer" class="nav">Home</a>
             <a href="#aboutus" rel="noopener noreferrer" class="nav">O nas</a>
             <a href="#contact" rel="noopener noreferrer" class="nav">Kontakt</a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" class="nav">Zamów</a>
+            <a href="#zamow" target="_blank" rel="noopener noreferrer" class="nav">Zamów</a>
         </nav>
     </div>
     </header>
@@ -63,7 +63,7 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
 
 
      <main>
-        <h2>Usługi</h2>
+        <h1>Usługi</h1>
         <div id="serv">
             <div class="services">
                 <h3>sprzątanie komputera</h3>
@@ -131,9 +131,9 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
         </div>
      </main>
      <main>
-        <h2>Zamwenie</h2>
+        <h1>Zamówenie</h1>
             <div id="zamow">
-                    <form method="post" action="/submit">
+                    <form id="orderForm" method="post" action="zamowenie.php">
                         <h3>Wybierz usługę:</h3>
                         <label><input type="checkbox" name="services" value="service1"> sprzątanie komputera</label><br>
                         <label><input type="checkbox" name="services" value="service2">  naprawa systemów komputerowych</label><br>
@@ -166,6 +166,30 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
                             addressInput.required = false;
                         }
                         }
+
+                        document.getElementById('orderForm').addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        const form = e.target;
+                        const formData = new FormData(form);
+
+                        try {
+                            const response = await fetch(form.action, {
+                            method: form.method,
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                            });
+
+                            if (response.ok) {
+                            alert('zamówenie zostało wysłane');
+                            form.reset();
+                            toggleAddress(false);
+                            } else {
+                            alert('coś poszło nie tak, spróbuj jeszcze raz');
+                            }
+                        } catch (error) {
+                            alert('coś poszło nie tak, spróbuj jeszcze raz');
+                        }
+                        });
                     </script>
             </div>
         </main>

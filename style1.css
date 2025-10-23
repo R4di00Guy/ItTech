@@ -66,6 +66,19 @@ main{
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
+.services{
+    width: 30%;
+    background-color: rgb(28, 39, 75);
+    min-height: fit-content;
+    color: white;
+    float: left;
+}
+.service_img_cont{
+    width: 90%;
+    margin: 0 auto;
+    min-height: fit-content;
+
+}
 
 footer{
     width: 60%;

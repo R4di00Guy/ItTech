@@ -118,39 +118,46 @@ footer{
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  background: #000; /* можно удалить или изменить фон */
-  color: #fff;      /* цвет текста */
+  font-style: italic;
 }
-
 .marqinner {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 10s linear infinite;
-}
+  animation: marquee 5s infinite  ;
+  -webkit-animation: marquee 5s infinite  ;
+  -moz-animation: marquee 5s infinite  ;
+  -o-animation: marquee 5s infinite  ;
 
+  animation-direction: alternate-reverse;  
+}
 .marqinner span {
   display: inline-block;
   padding: 0 2rem;
   font-size: 2rem;
 }
-
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(105%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-5%);
   }
+}
+div.footcont{
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0;
 }
 div.foottxt{
     float: left;
-    width: 50%;
+    width: 48%;
     height: 100%;
-    background-color: white;
 }
 div#copyrights{
     text-align: center;
     clear: both;
+    padding: 13px 0px;
+    font-weight: 800;
 }
 footer{
     height: 15%;

@@ -165,8 +165,14 @@ div.footcont{
 }
 div.foottxt{
     float: left;
-    width: 39%;
+    width: 49%;
+    padding-left: 15%;
     height: 100%;
+    margin: 0 auto;
+}
+#contact{
+    width: 32%;
+    padding-left: 0;
 }
 div#copyrights{
     text-align: center;

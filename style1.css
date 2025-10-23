@@ -17,7 +17,6 @@ header{
     background-color: rgba(165, 42, 42, 0);
     margin: 0;
     padding: 0;
-    
 }
 .head{
     background-color: white;
@@ -100,4 +99,11 @@ div.foottxt{
 div#copyrights{
     text-align: center;
     clear: both;
+}
+footer{
+    height: 15%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
 }

@@ -133,7 +133,7 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
      <main>
         <h1>Zamówenie</h1>
             <div id="zamow">
-                    <form action="zamowienie.php" method="post">
+                    <!-- <form action="zamowienie.php" method="post">
                         <h3>Wybierz usługę:</h3>
                         <label><input type="checkbox" name="services" value="service1"> czyszczenie komputera</label><br>
                         <label><input type="checkbox" name="services" value="service2">  naprawa systemów komputerowych</label><br>
@@ -152,46 +152,82 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
                         <label>Email (opcjonalnie): <input type="email" name="email"></label><br><br>
 
                         <button type="submit">Wyślij</button>
+                    </form> -->
+                    <form id="orderForm" action="zamowienie.php" method="post">
+                        <h3>Wybierz usługę:</h3>
+                        <label><input type="checkbox" name="services[]" value="Czyszczenie komputera"> czyszczenie komputera</label><br>
+                        <label><input type="checkbox" name="services[]" value="Naprawa systemów komputerowych"> naprawa systemów komputerowych</label><br>
+                        <label><input type="checkbox" name="services[]" value="Diagnostyka komputera"> diagnostyka komputera</label><br><br>
+
+                        <h3>Gdzie musi być okazana usługa:</h3>
+                        <label><input type="radio" name="location" value="home" required onclick="toggleAddress(true)"> wyjazd technika do domu</label><br>
+                        <label><input type="radio" name="location" value="office" onclick="toggleAddress(false)"> wizyta naszego oddziału przez klienta</label><br><br>
+
+                        <div id="address-field" style="display:none;">
+                            <label>Adres: <input type="text" name="address" id="address"></label><br><br>
+                        </div>
+
+                        <label>Telefon (obowiązkowo): <input type="tel" name="phone" required pattern="\+?[0-9\s\-\(\)]{7,}"></label><br><br>
+
+                        <label>Email (opcjonalnie): <input type="email" name="email"></label><br><br>
+
+                        <button type="submit">Wyślij</button>
                     </form>
+                    
+            </div>
+            <script>
+                function toggleAddress(show) {
+                    document.getElementById('address-field').style.display = show ? 'block' : 'none';
+                }
 
-                    <script>
-                        function toggleAddress(show) {
-                        const addressField = document.getElementById('address-field');
-                        const addressInput = document.getElementById('address');
-                        if (show) {
-                            addressField.style.display = 'block';
-                            addressInput.required = true;
-                        } else {
-                            addressField.style.display = 'none';
-                            addressInput.required = false;
-                        }
-                        }
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.getElementById('orderForm');
 
-                        document.getElementById('orderForm').addEventListener('submit', async function(e) {
+                    form.addEventListener('submit', async function(e) {
                         e.preventDefault();
-                        const form = e.target;
+
                         const formData = new FormData(form);
 
+                        const selectedServices = Array.from(form.querySelectorAll('input[name="services[]"]:checked'))
+                            .map(cb => cb.value);
+
+                        if (selectedServices.length === 0) {
+                            alert('Proszę wybrać przynajmniej jedną usługę.');
+                            return;
+                        }
+
+                        formData.delete('services[]');
+                        selectedServices.forEach(service => formData.append('services[]', service));
+
+                        const phone = formData.get('phone');
+                        if (!phone || phone.trim().length < 7) {
+                            alert('Podaj poprawny numer telefonu!');
+                            return;
+                        }
+
                         try {
-                            const response = await fetch(form.action, {
-                            method: form.method,
-                            body: formData,
-                            headers: { 'Accept': 'application/json' }
+                            const response = await fetch('zamowienie.php', {
+                                method: 'POST',
+                                body: formData
                             });
 
                             if (response.ok) {
-                            alert('zamówenie zostało wysłane');
-                            form.reset();
-                            toggleAddress(false);
+                                alert('Zamówienie zostało wysłane pomyślnie! Dziękujemy.');
+                                form.reset();
+                                toggleAddress(false);
+// 
+                                window.location.href = 'zamowienie.php';
                             } else {
-                            alert('coś poszło nie tak, spróbuj jeszcze raz');
+                                alert('Wystąpił błąd podczas wysyłania zamówienia.');
                             }
                         } catch (error) {
-                            alert('coś poszło nie tak, spróbuj jeszcze raz');
+                            console.error('Błąd:', error);
+                            alert('Nie udało się połączyć z serwerem.');
                         }
-                        });
-                    </script>
-            </div>
+                    });
+                });
+                </script>
+
         </main>
 
     <div class="line"></div>

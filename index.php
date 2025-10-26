@@ -68,7 +68,7 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
             <div class="services">
                 <h3>czyszczenie komputera</h3>
                 <img class="service_img" src="cleaning.png" alt="img">
-                <h4>70zł</h4>
+                <h4 style="padding-bottom: 24px">70zł</h4>
                 <div class="description">
                     <ul>
                         <li>
@@ -86,7 +86,7 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
             <div class="services">
                 <h3>naprawa systemów komputerowych</h3>
                 <img class="service_img" src="repairing.png" alt="img">
-                <h4>60zł</h4>
+                <h4 style="padding-bottom: 24px">60zł</h4>
                 <div class="description">
                     <ul>
                         <li>
@@ -107,7 +107,7 @@ użytkownik może złożyć zamówienie na stronie, wprost napisać na mejla alb
             <div class="services">
                 <h3>diagnostyka komputera</h3>
                 <img class="service_img" src="diagnostyka.png" alt="img">
-                <h4>55zł</h4>
+                <h4 style="padding-bottom: 24px">55zł</h4>
                 <div class="description">
                     
                     <ul>

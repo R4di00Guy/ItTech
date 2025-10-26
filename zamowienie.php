@@ -25,7 +25,26 @@
     <main>
         <h1>Powodzenie</h1>
         <h3>Dzienkujemy za zamówenie</h3>
-        <?php ?>
+        <?php 
+        $serv=$_POST["services"];
+        $loc=$_POST["location"];
+        $adr=$_POST["address"];
+        $tel=$_POST["phone"];
+        $eml=$_POST["email"];
+
+        echo "<h2>Wybrana usługa: "+$serv+"</h2>"
+        if($loc.value=="home"){
+            echo "<h2>Przyjedźmy na adres: "+$adr+"</h2>"
+        }
+        else{
+            echo "<h2>Państwo przyjedżie do naszego oddziału</h2>"
+        }
+        echo "<h2>Numer telefonu klienta: "+$tel+"</h2>"
+        if($eml!=""){
+            echo "<h2>E-mail: "+$eml+"</h2>"
+        }
+
+        ?>
     </main>
 
     <div class="line"></div>
